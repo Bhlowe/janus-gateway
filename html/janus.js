@@ -1358,8 +1358,8 @@ function Janus(gatewayCallbacks) {
 			}
 		};
 		if(stream !== null && stream !== undefined) {
-			Janus.log('Adding local stream');
-			stream.getTracks().forEach(track => config.pc.addTrack(track, stream));
+			Janus.log('Adding local stream');			
+			stream.getTracks().forEach(function(track) {config.pc.addTrack(track, stream);});
 			pluginHandle.onlocalstream(stream);
 		}
 		config.pc.ontrack = function(event) {
